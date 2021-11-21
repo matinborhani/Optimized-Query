@@ -1,5 +1,5 @@
 # Optimized-Query
-try to optimize 6 query with SQL Server
+In Project of Database course, we try to optimize 6 queries with SQL Server
 
 ## About Project
 This project contains CSV files about movies. The files include name, rating, score, tag, etc. (because the size is big, upload to Onedrive, you can download it).
