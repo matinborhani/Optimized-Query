@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text_body.css') }}">
+
+            <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Query3</title>
+
+</head>
+<body>
+<div class="header">
+  <div class="header-right">
+    <a href="http://127.0.0.1:4500/">Home</a>
+  </div>
+</div>
+<div>
+    <p class="first-paragraph badge badge-primary">Query3:</p>
+    <p class="paragraph">select title,genres,AVG(rating) As AvgRating <br>
+from movies join ratings on movies.movieId = ratings.movieId <br>
+where genres like '%{{genres}}%' <br>
+group by movies.movieId,title,genres <br>
+having AVG(rating)>3 <br>
+</p>
+</div>
+<div>
+            <li class="title_list">Column Name: title , Genres , Avg_Rating</li>
+        {% for row in cursor %}
+            <li class="list-inline-item"><a href="#">{{ row }}</a></li>
+        {% endfor %}
+</div>
+
+
+</body>
+</html>

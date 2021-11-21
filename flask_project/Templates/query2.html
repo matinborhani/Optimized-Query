@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text_body.css') }}">
+            <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Query2</title>
+</head>
+<body>
+<div class="header">
+  <div class="header-right">
+    <a href="http://127.0.0.1:4500/">Home</a>
+    <a href="http://127.0.0.1:4500/query2">Refresh</a>
+  </div>
+</div>
+<div>
+    <p class="first-paragraph badge badge-primary">Query2:</p>
+    <p class="paragraph">	select Years,MAX(Rate) As MaxRating,MAX(title) As title<br>
+from ( <br>
+Select Years.YearMovie As Years,movies.title As title,Count(*) As Rate<br>
+from Years join movies on movies.movieId = Years.movieId<br>
+		join ratings on movies.movieId = ratings.movieId<br>
+group by Years.YearMovie,ratings.movieId,movies.title<br>
+)AS Table_Count<br>
+group by Table_Count.Years<br>
+Order by Table_Count.Years<br>
+</p>
+</div>
+<div>
+            <li class="title_list">Column Name: Years , MaxRating , Title</li>
+        {% for row in cursor %}
+            <li class="list-inline-item"><a href="#">{{ row }}</a></li>
+        {% endfor %}
+</div>
+</body>
+</html>

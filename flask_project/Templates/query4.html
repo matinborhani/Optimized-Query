@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text_body.css') }}">
+            <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Query4</title>
+
+</head>
+<body>
+<div class="header">
+  <div class="header-right">
+    <a href="http://127.0.0.1:4500/">Home</a>
+    <a href="http://127.0.0.1:4500/query4">Refresh</a>
+  </div>
+</div>
+
+<div>
+    <p class="first-paragraph badge badge-primary">Query4:</p>
+    <p class="paragraph">	Go <br>
+declare @AvgAfter decimal(5,2);<br>
+set @AvgAfter=( <br>
+select AVG(AvgRating) from ViewAfter2005Average) <br>
+declare @AvgBefore decimal(5,2); <br>
+set @AvgBefore=( <br>
+select Avg(AvgRating) from ViewBefore2005Average)<br>
+
+select Abs(@AvgAfter-@AvgBefore) <br>
+Go <br>
+</p>
+</div>
+
+<div>
+            <li class="title_list">Column: Difference Between 'Before2005' and 'After2005'</li>
+        {% for row in cursor %}
+            <li class="list-inline-item"><a href="#">{{ row }}</a></li>
+        {% endfor %}
+</div>
+</body>
+</html>

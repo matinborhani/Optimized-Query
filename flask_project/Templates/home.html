@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--for Dropdown List-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Project-1</title>
+</head>
+<body>
+<div class="container">
+    <h1>Project-1 - {{ title }}</h1>
+    <h2 class="text-primary">Matin Borhani - 9526703</h2>
+    <hr>
+    <p class="first-paragraph">which of them ?</p>
+    <div class="row class-row">
+        <div class="col-lg-4 col-md-6">
+            <a href="http://127.0.0.1:4500/query1"><button type="button" class="btn btn-primary btn-block">Query 1</button></a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <a href="http://127.0.0.1:4500/query2"><button type="button" class="btn btn-primary btn-block">Query 2</button></a>
+        </div>
+        <div class="dropdown show col-lg-4 col-md-6">
+          <a class="btn btn-primary btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Query 3
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Action">Action</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Adventure">Adventure</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Animation">Animation</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Children's">Children's</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Comedy">Comedy</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Crime">Crime</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Documentary">Documentary</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Drama">Drama</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Fantasy">Fantasy</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Film-Noir">Film-Noir</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Horror">Horror</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Musical">Musical</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Mystery">Mystery</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Romance">Romance</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Sci-Fi">Sci-Fi</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Thriller">Thriller</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/War">War</a>
+            <a class="dropdown-item" href="http://127.0.0.1:4500/query3/Western">Western</a>
+
+          </div>
+        </div>
+    </div>
+    <br>
+    <div class="row class-row">
+        <div class="col-lg-4 col-md-6">
+             <a href="http://127.0.0.1:4500/query4"><button type="button" class="btn btn-primary btn-block">Query 4</button></a>
+        </div>
+                <div class="col-lg-4 col-md-6">
+            <a href="http://127.0.0.1:4500/query5"><button type="button" class="btn btn-primary btn-block">Query 5</button></a>
+        </div>
+                <div class="col-lg-4 col-md-6">
+            <a href="http://127.0.0.1:4500/query6"><button type="button" class="btn btn-primary btn-block">Query 6</button></a>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
