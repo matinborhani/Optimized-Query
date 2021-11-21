@@ -1,0 +1,18 @@
+.paragraph{
+    font-size: larger;
+    text-align: left;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    padding: 2% 5%;
+}
+.first-paragraph{
+    font-size: xx-large;
+    margin-left: 5%;
+}
+li.list-inline-item  {
+font-size: large;
+margin-left: 5%;
+}
+.title_list{
+font-size: large;
+margin-left: 5%;
+}
