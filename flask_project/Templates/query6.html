@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text_body.css') }}">
+            <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Query6</title>
+
+</head>
+<body>
+<div class="header">
+  <div class="header-right">
+    <a href="http://127.0.0.1:4500/">Home</a>
+    <a href="http://127.0.0.1:4500/query6">Refresh</a>
+  </div>
+</div>
+
+<div>
+    <p class="first-paragraph badge badge-primary">Query6:</p>
+    <p class="paragraph">
+    select mo.title , tg4.tag , tg4.number<br>
+from( <br>
+  select tg3.tag , COUNT(*) as number , tg3.movieId <br>
+  from( <br>
+    select tags.tag as tag , tg.movieId as movieId <br>
+    from( <br>
+      select sc.tagId as tagId , sc.movieId as movieId <br>
+      from scores as sc <br>
+      where not EXISTS (select * <br>
+          from scores as sc2 <br>
+          where sc.movieId=sc2.movieId and sc.relevance<sc2.relevance)) as tg , <br>
+      tags inner join [tags-relevance] on tags.tag=[tags-relevance].tag <br>
+      where tags.movieId=tg.movieId and [tags-relevance].tagId=tg.tagId) as tg3 <br>
+  group by tg3.movieId,tg3.tag)as tg4 inner join movies as mo on mo.movieId=tg4.movieId;<br>
+    </p>
+</div>
+<div>
+            <li class="title_list">Column: title , tag , number </li>
+        {% for row in cursor %}
+            <li class="list-inline-item"><a href="#">{{ row }}</a></li>
+        {% endfor %}
+</div>
+</body>
+</html>

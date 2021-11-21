@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <!--My Style Css File-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/text_body.css') }}">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Query5</title>
+
+</head>
+<body>
+<div class="header">
+  <div class="header-right">
+    <a href="http://127.0.0.1:4500/">Home</a>
+    <a href="http://127.0.0.1:4500/query5">Refresh</a>
+  </div>
+</div>
+<div>
+    <p class="first-paragraph badge badge-primary">Query5:</p>
+    <p class="paragraph">select Distinct userId <br>
+    from ratings rate <br>
+    where Not  EXISTS ( <br>
+    select * from ratings as r where Not rate.rating=r.rating and rate.userId=r.userId); <br>
+</p>
+</div>
+
+<div>
+            <li class="title_list">Column Name: UserId</li>
+        {% for row in cursor %}
+            <li class="list-inline-item"><a href="#">{{ row }}</a></li>
+        {% endfor %}
+</div>
+
+</body>
+</html>
