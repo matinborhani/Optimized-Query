@@ -27,6 +27,6 @@ We have 6 questions and should write queries and reduce time with Index, Non-clu
 
 
 ## Run
-Run Flask_Application and enter: localhost:4500/
+Run `Flask_Application.py` and enter: localhost:4500/
 enjoy it :)
 
